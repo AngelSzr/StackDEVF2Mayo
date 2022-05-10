@@ -95,23 +95,19 @@ stack.push(5)
 function retirar_contenedor_id(stack, pos) {
     let auxiliar = new Stack();
     let longitud = stack.size()
-    for (let i = 0; i < longitud; i++) {
-        if (i != pos) {
+    for (let i = 0; i < longitud - pos; i++) {
+        if (i !== pos + 1) {
             auxiliar.push(stack.pop())
         } else {
-
+            stack.pop()
         }
     }
-
+    let contador = auxiliar.size();
+    for (let n = 0; n < contador; n++) {
+        stack.push(auxiliar.pop())
+    }
+    return stack
 }
-while (stack.items[i] != id) {
-}
-stack.pop()
-let contador = auxiliar.size();
-for (let i = 0; i < contador; i++) {
-    stack.push(auxiliar.pop())
-}
-return stack
 
 // Entrada: retirar_contenedor_pos(stack,4)
 // Salida: [3,2,3,4,8,1,2,5,5]*/
